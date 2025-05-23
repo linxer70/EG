@@ -1,0 +1,64 @@
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b class="mat"> 직원(사원번호, 부서명, 이름, 나이, 주소, 급여)의 테이블에서 급여가 많은 것부터 내림차순으로 정열하고 급여가 동일한 경우 이름을 가나다순으로 출력하는 질의문으로 옳은 것은?</b></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat_view"></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="pdy10020_2007_06_15_15_37_03" value="radio3" onClick="a('<?echo $pgnum ?>-1') ">
+    </td>
+    <td class="mat1" height="25" width="10" align="center" valign="top" >①</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select * from 직원 order by 급여 , 이름 desc</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="pdy10020_2007_06_15_15_37_03" value="radio3" onClick="a('<?echo $pgnum ?>-2') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >②</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select * from 직원 order by 급여 asc , 이름 desc</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr> 
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="pdy10020_2007_06_15_15_37_03" value="radio3" onClick="a('<?echo $pgnum ?>-3') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >③</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select * from 직원 order by 급여 desc , 이름</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="pdy10020_2007_06_15_15_37_03" value="radio3" onClick="a('<?echo $pgnum ?>-4') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"   width="10" >④</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select * from 직원 order by 급여 descend , 이름 ascend</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>

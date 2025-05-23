@@ -1,0 +1,64 @@
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b class="mat">사원(사번, 성명, 거주지, 기본급, 부서명) 테이블에서 거주지가 '서울'이나 '인천'이 아닌 사원 중에 기본급의 최대값으 구하는 SQL 명령으로 맞는 것은?</b></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat_view"></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="tst10_2009_08_28_10_25_12" value="radio3" onClick="a('<?echo $pgnum ?>-1') ">
+    </td>
+    <td class="mat1" height="25" width="10" align="center" valign="top" >①</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT MAX(기본급) AS [최대값] FROM 사원 WHERE 거주지 NOT IN ('서울', '인천');</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="tst10_2009_08_28_10_25_12" value="radio3" onClick="a('<?echo $pgnum ?>-2') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >②</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT [최대값] AS MAX(기본급) FROM 사원 WHERE(거주지 <> '서울') OR (거주지 <> '인천');</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr> 
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="tst10_2009_08_28_10_25_12" value="radio3" onClick="a('<?echo $pgnum ?>-3') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >③</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT MAX(기본급) AS [최대값] FROM WHERE(거주지 <> '서울') OR (거주지 <> '인천');</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="tst10_2009_08_28_10_25_12" value="radio3" onClick="a('<?echo $pgnum ?>-4') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"   width="10" >④</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT [최대값] AS MAX(기본급) FROM 사원 WHERE 거주지 NOT IN('서울','인천');</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>

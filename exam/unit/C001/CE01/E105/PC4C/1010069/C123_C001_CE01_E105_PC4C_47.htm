@@ -1,0 +1,64 @@
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b class="mat">직원(사원번호, 부서명, 직급, 급여, 이름, 나이, 주소)의 테이블에서 직급별 급여 평균금액과, 총합계가 다음과 같이 출력되기 위한 질의문으로 옳은 것은?</b></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat_view"><img src = '/exam/unit/C001/CE01/E105/PC4C/1010069/images/C123-47-view-1.gif'></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="1010069_2008_10_23_13_54_06" value="radio3" onClick="a('<?echo $pgnum ?>-1') ">
+    </td>
+    <td class="mat1" height="25" width="10" align="center" valign="top" >①</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select 직급, avg(급여)=급여평균, sum(급여)=급여총계 from 직원order by 직급</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="1010069_2008_10_23_13_54_06" value="radio3" onClick="a('<?echo $pgnum ?>-2') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >②</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select 직급, avg(급여) as 급여평균, sum(급여) as 급여총계 from 직원 order by 직급</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr> 
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="1010069_2008_10_23_13_54_06" value="radio3" onClick="a('<?echo $pgnum ?>-3') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >③</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select 직급, avg(급여)=급여평균, sum(급여)=급여총계 from 직원 group by 직급</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="1010069_2008_10_23_13_54_06" value="radio3" onClick="a('<?echo $pgnum ?>-4') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"   width="10" >④</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;select 직급, avg(급여) as 급여평균, sum(급여) as 급여총계 from 직원 group by 직급</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>

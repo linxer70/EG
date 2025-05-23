@@ -1,0 +1,55 @@
+/*
+
+:host(.hide-dropdown-arrow-combobox) [part="toggle-button"]
+{
+  display: none;
+}
+vaadin-combo-box.hide-dropdown-arrow-combobox[disabled]::part(input-field) {
+  color: white !important;
+  --vaadin-input-field-disabled-text-color: #333 !important;
+  background-color: white !important; 
+  
+}
+vaadin-combo-box::part(input-field) {
+	color:red;
+  --vaadin-input-field-disable-text-color: red !important;
+  --vaadin-input-field-background: #333 !important;
+}
+*/
+vaadin-combo-box.hide-dropdown-arrow-combobox[disabled]::part(input-field) {
+  color: white !important;
+  --vaadin-input-field-disabled-text-color: white !important;
+  --lumo-disabled-text-color: white !important; /* Lumo 테마 변수 재정의 */
+  /*background-color: #333 !important; /* 배경색 필수 */
+}
+
+/* [필수] 드롭다운 화살표 숨기기 */
+vaadin-combo-box.hide-dropdown-arrow-combobox[disabled]::part(toggle-button) {
+  display: none !important;
+}
+[data-tooltip]::after {
+  z-index: 9999 !important;
+}
+vardin-grid.gridchild-style {
+  /* 폰트 크기 설정 */
+  --small-header-font-size: 0.65rem;
+  --small-body-font-size: 0.65rem;
+  
+  /* 높이 관련 변수 설정 */
+  --small-header-height: 1.6rem;  /* 헤더 높이 */
+  --small-row-height: 1.0rem;     /* 행 높이 */
+}
+
+.login-view {
+    background-color: var(--lumo-base-color);
+    padding: var(--lumo-space-l);
+}
+
+.login-button {
+    background-color: var(--lumo-primary-color);
+    color: white;
+}
+
+
+
+

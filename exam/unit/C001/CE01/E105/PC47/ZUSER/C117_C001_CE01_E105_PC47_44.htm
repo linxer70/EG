@@ -1,0 +1,64 @@
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b class="mat">다음 중 사원(사번, 성명, 근무점수, 부서명) 테이블에서 부서명이 '영업부'인 사원들의 근무점수를 15%씩 올리는 SQL문으로 옳은 것은?</b></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat_view"></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_05_07_18_02_18" value="radio3" onClick="a('<?echo $pgnum ?>-1') ">
+    </td>
+    <td class="mat1" height="25" width="10" align="center" valign="top" >①</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;UPDATE 근무점수 = 근무점수 * 1.15 FROM 사원 HAVING 부서명 = '영업부';</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_05_07_18_02_18" value="radio3" onClick="a('<?echo $pgnum ?>-2') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >②</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;UPDATE 사원 VALUE 근무점수 = 근무점수 * 1.15 WHERE 부서명 = '영업부';</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr> 
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_05_07_18_02_18" value="radio3" onClick="a('<?echo $pgnum ?>-3') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >③</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;UPDATE 근무점수 = 근무점수 * 1.15 FROM 사원  WHERE 부서명 = '영업부';</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_05_07_18_02_18" value="radio3" onClick="a('<?echo $pgnum ?>-4') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"   width="10" >④</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;UPATE 사원 SET 근무점수 = 근무점수 * 1.15 WHERE 부서명 = '영업부';</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>

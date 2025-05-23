@@ -1,0 +1,70 @@
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b class="mat">다음의 관계를 참고하여 부서이름이 “영업부”인 사원들의 성명과 근무년수를 검색하는 SQL 구문으로 옳은 것은?</b></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat_view"><img src = '/exam/unit/C001/CE01/E105/PC4C/ZUSER/images/C116-58-view-1.gif'></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_02_14_17_35_43" value="radio3" onClick="a('<?echo $pgnum ?>-1') ">
+    </td>
+    <td class="mat1" height="25" width="10" align="center" valign="top" >①</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT<br>성명, 근무년수 FROM 사원 WHERE 부서코드<br> 
+&nbsp;&nbsp; IN(SELECT 부서이름 FROM  부서<br>
+&nbsp;&nbsp; WHERE 부서이름 = ‘영업부’);</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_02_14_17_35_43" value="radio3" onClick="a('<?echo $pgnum ?>-2') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >②</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT<br>성명, 근무년수 FROM 사원 WHERE 부서코드<br>
+&nbsp;&nbsp; IN(SELECT 부서코드 FROM 부서<br>
+&nbsp;&nbsp; WHERE 부서이름 = ‘영업부’);</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr> 
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_02_14_17_35_43" value="radio3" onClick="a('<?echo $pgnum ?>-3') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >③</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT<br>A.성명, A.근무년수 FROM 사원 AS A, 부서 AS  B <br>&nbsp;&nbsp;WHERE B.부서이름 = ‘영업부’;</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2007_02_14_17_35_43" value="radio3" onClick="a('<?echo $pgnum ?>-4') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"   width="10" >④</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT<br>성명, 성별 FROM 사원 WHERE 부서코드<br> 
+&nbsp;&nbsp; LIKE (SELECT 부서코드 FROM 부서<br>
+&nbsp;&nbsp; WHERE 부서이름 = ‘영업부’);</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>

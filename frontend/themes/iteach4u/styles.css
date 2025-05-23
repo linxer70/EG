@@ -1,0 +1,108 @@
+@import url('./home/styles.css');
+@import url('./main-layout.css');
+@import url('./combobox.css');
+@import url('./formula.css');
+@import url('./views/data-grid-view.css');
+@import url('./views/data-grid2-view.css');    
+html {
+      --lumo-font-size: 1rem;
+      --lumo-font-size-xxxl: 1.75rem;
+      --lumo-font-size-xxl: 1.375rem;
+      --lumo-font-size-xl: 1.125rem;
+      --lumo-font-size-l: 1rem;
+      --lumo-font-size-m: 0.875rem;
+      --lumo-font-size-s: 0.8125rem;
+      --lumo-font-size-xs: 0.75rem;
+      --lumo-font-size-xxs: 0.6875rem;
+      --lumo-line-height-m: 1.4;
+      --lumo-line-height-s: 1.2;
+      --lumo-line-height-xs: 1.1;
+      --lumo-border-radius-s: 1px;
+      --lumo-border-radius-m: 2px;
+      --lumo-border-radius-l: 4px;
+      --lumo-size-xl: 3rem;
+      --lumo-size-l: 2.5rem;
+      --lumo-size-m: 2rem;
+      --lumo-size-s: 1.75rem;
+      --lumo-size-xs: 1.5rem;
+      --lumo-space-xl: 1.875rem;
+      --lumo-space-l: 1.25rem;
+      --lumo-space-m: 0.625rem;
+      --lumo-space-s: 0.3125rem;
+      --lumo-space-xs: 0.1875rem;
+
+    }
+
+.main-layout  {
+  background-color: #99c1f1; 
+  color: black; 
+}
+
+.main-layout vaadin-grid::part(grid) {
+  background-color: #99c1f1; 
+  color: white; 
+}
+
+.main-layout vaadin-grid::part(header-cell) {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+.main-layout vaadin-grid::part(body-cell) {
+  background-color: #2b2b2b;
+  color: white;
+}
+
+.main-layout vaadin-grid::part(footer-cell) {
+  background-color: #3a3a3a;
+  color: white;
+}
+.main-layout vaadin-text-field::part(input-field) {
+  background-color: #3a3a3a; 
+  color: white; 
+}
+
+.main-layout vaadin-text-field > label {
+  background-color: white; /* 배경색을 연한 회색으로 설정 */
+  color: black; /* 글꼴 색상을 검정색으로 설정 */
+}
+.main-layout vaadin-integer-field::part(input-field) {
+  background-color: #3a3a3a; 
+  color: white; 
+}
+
+.main-layout vaadin-integer-field > label {
+  background-color: white; /* 배경색을 연한 회색으로 설정 */
+  color: black; /* 글꼴 색상을 검정색으로 설정 */
+}
+.main-layout vaadin-text-area::part(input-field) {
+  background-color: #3a3a3a; /* 배경색을 연한 회색으로 설정 */
+  color: white; /* 글꼴 색상을 검정색으로 설정 */
+}
+
+.main-layout vaadin-combo-box::part(input-field){
+	background:black;
+}
+.main-layout vaadin-date-picker::part(input-field){
+	background:black;
+}
+.main-layout vaadin-combo-box> label {
+  background-color: #333; /* 배경색을 연한 회색으로 설정 */
+  color: black; /* 글꼴 색상을 검정색으로 설정 */
+}
+
+.main-layout vaadin-upload {
+	padding: 0px; 
+	height:80px;
+}
+
+.main-layout vaadin-upload > vaadin-button{
+	padding-top: 0px; 
+	background:black;
+}
+.main-layout vaadin-upload::part(primary-buttons){
+	background:black;
+}
+.main-layout vaadin-flex-layout {
+  background-color: #333; /* 배경색을 짙은 회색(#333)으로 설정 */
+}

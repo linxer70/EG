@@ -1,0 +1,68 @@
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b class="mat"><창고>와 <제품>의 테이블 관계가 다음과 같을 때, 창고위치가 ‘부산'인 창고에 저장된 제품의 “제품명", “단가", “창고명"만을 표시하도록 하는 SQL 문은?</b></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat_view"><img src = '/exam/unit/C001/CE01/E105/PC4C/ZUSER/images/C112-60-view-1.gif'></td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>
+<table width="420" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2005_12_27_11_26_23" value="radio3" onClick="a('<?echo $pgnum ?>-1') ">
+    </td>
+    <td class="mat1" height="25" width="10" align="center" valign="top" >①</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT 제품.제품명, 제품.단가, 창고.창고명 FROM 창고 inner join 제품 WHERE 제품.창고위치 = "부산";
+</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2005_12_27_11_26_23" value="radio3" onClick="a('<?echo $pgnum ?>-2') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >②</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT * FROM 창고 inner join 제품 on 창고.창고코드 = 제품.창고코드 WHERE 제품.창고위치 = "부산";
+</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr> 
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2005_12_27_11_26_23" value="radio3" onClick="a('<?echo $pgnum ?>-3') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"  width="10"  >③</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT 제품.제품명, 제품.단가, 창고.창고명 FROM 제품 inner join 창고 on 창고.창고코드 = 제품.창고코드 WHERE 창고.창고위치 = "부산";
+</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td class="mat1" align="center" valign="top"  width="10" > <input type="radio" name="ZUSER_2005_12_27_11_26_23" value="radio3" onClick="a('<?echo $pgnum ?>-4') ">
+    </td>
+    <td class="mat1"  height="25" align="center" valign="top"   width="10" >④</td>
+    <td class="mat1"  height="25"  width="400" >&nbsp;SELECT 제품.제품명, 제품.단가, 창고.창고명 FROM 창고 inner join 제품 HAVING 제품.창고위치 = "부산" AND 부서.부서번호 = 사원.부서번호;
+</td>
+  </tr>
+  <tr>
+    <td height="8"></td>
+    <td height="8"></td>
+    <td height="8"></td>
+  </tr>
+</table>

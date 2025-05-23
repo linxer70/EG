@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="repackage">
+
+  <property name="package.name" value="egframe.frame"/>
+  <property name="class.name" value="${arg.source.class.name}"/>
+
+  <target name="repackage">
+    <property name="jar.file" value="target/ebsol.jar"/>
+    <property name="new.class.path" value="target/${package.name}/${class.name}.class"/>
+    <antcall target="add-or-replace-class">
+      <param name="jar.file" value="${jar.file}"/>
+      <param name="destination.package.name" value="${arg.destination.package.name}"/>
+    </antcall>
+  </target>
+
+  <target name="add-or-replace-class" depends="-init">
+    <zip destfile="${jar.file}" update="true">
+      <zipfileset dir="target" includes="${package.name}/**"/>
+    </zip>
+    <copy file="${new.class.path}" todir="${arg.destination.package.name}" overwrite="true"/>
+  </target>
+  <target name="-init">
+    <mkdir dir="target/${package.name}"/>
+  </target>
+</project>

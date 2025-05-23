@@ -1,0 +1,48 @@
+{
+  "name": "tinymce6-formula",
+  "version": "2.0.3",
+  "description": "Formula plugin for tinyMCE WYSIWYG editor V5 and V6. Allows user to add equations and formulas inside tinyMCE",
+  "main": "plugin.min.js",
+  "scripts": {
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umar221b/tinymce6-formula.git"
+  },
+  "keywords": [
+    "tinyMCE",
+    "formula",
+    "equation",
+    "editor"
+  ],
+  "author": "Panagiotis Tsavdaris",
+  "contributors": [
+    {
+      "name": "Panagiotis Tsavdaris",
+      "email": "ptsavdar@gmail.com",
+      "url": "https://github.com/ptsavdar"
+    },
+    {
+      "name": "Umar Alkafaween",
+      "email": "omar.ka923@gmail.com",
+      "url": "https://github.com/umar221b"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umar221b/tinymce6-formula/issues"
+  },
+  "homepage": "https://github.com/umar221b/tinymce6-formula#readme",
+  "devDependencies": {
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.0",
+    "mathjax": "2.7.8"
+  }
+}

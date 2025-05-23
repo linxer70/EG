@@ -1,0 +1,108 @@
+<? include_once "inc/head_main.html"; ?>
+            <!--내용-->
+			<table cellspacing="0" border="0" cellpadding="0">
+						<!--공지사항 1-->
+				<tr valign="top">
+					<td width="300" style="padding-right:5px">
+						<table width="100%" cellspacing="0" cellpadding="0">
+						<tr> 
+							<td background="_images/bar_bg.gif" width="69"><img src="_images/bar_01.gif" width="69" height="23"></td>
+							<td background="_images/bar_bg.gif" align="right"><img src="_images/bar_more.gif"  class="btn" onclick="location.href='notice/notice_list.html';"></td>
+						</tr>
+						<tr valign="top"> 
+						  <td colspan="2">
+							<table width="100%" cellspacing="0" cellpadding="0">
+								<? $qry = "select * from t_bbs_eagle_notices order by regDate Desc limit 0, 5";
+								$rslt = $conn->query($qry);
+								while($reSet = mysql_fetch_array($rslt)){
+								$subject = XiString::hstrcut($reSet[subject], 25);
+								?>
+								<TR height="23">
+									<TD style="padding-left:8"><img src="_images/bullet_01.gif" align=absmiddle>&nbsp;<a href="notice/notice_view.html?idx=<?=$reSet[idx]?>" title="<?=$reSet[subject]?>"><? if($reSet[category] <> ""){?><FONT COLOR="#7CA437">[<?= $reSet[category]?>]</font><? };?><?= $subject?></a></TD>
+								</TR>
+								<TR>
+									<TD height="1" background="_images/dot.gif"></TD>
+								</TR>
+								<? }?>
+							</table></td>
+							</tr>
+						</table>
+					</td>
+					<!--//공지사항 1 -->
+
+					<!--공지사항 2-->
+					<td width="300" style="padding-left:5px">
+						<table width="100%" cellspacing="0" cellpadding="0" marginwidth="5">
+						<tr>
+							<td background="_images/bar_bg.gif"><img src="_images/bar_02.gif" width="69" height="23"></td>
+							<td background="_images/bar_bg.gif" align="right"><img src="_images/bar_more.gif"  class="btn" width="69" height="23" onclick="location.href='studydata/actual_pds.html?inf=list';"></td>
+						</tr>
+						<tr>
+						  <td colspan="2">
+							<table width="100%" cellspacing="0" cellpadding="0">
+								<? $qry = "select * from t_bbs_eagle_pds order by regDate Desc limit 0, 5";
+								$rslt = $conn->query($qry);
+								while($reSet = mysql_fetch_array($rslt)){
+								$subject = XiString::hstrcut($reSet[subject], 25);
+								echo "
+								<TR height=\"23\">
+									<TD style=\"padding-left:8\" width=\"10\"><img src=\"_images/bullet_02.gif\" width=\"3\" height=\"3\"></TD>
+									<TD width=\"275\"><a href=\"/studydata/actual_pds.html?inf=view&idx=$reSet[idx]\" title=\"$reSet[subject]\">";
+										if($reSet[isNotice]=="1") { echo "<FONT COLOR=\"#FF9200\">[$reSet[isNotice]]</font>";}
+										else {echo "$reSet[subject]</a></TD>
+								</TR>
+								<TR>
+									<TD colspan=\"2\" height=\"1\" background=\"_images/dot.gif\"></TD>
+								</TR>";}}?>
+								</table></td>
+							</tr>
+						</table>
+					</td>
+					<!--//공지사항 2-->
+				</tr>
+				<tr>
+					<td colspan="2" height="10"></td>
+				</tr>
+				<tr valign="top">
+					<!--런프로그램-->
+					<td>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0" background="_images/learn01.gif">
+						<tr> 
+						  <td height="62">&nbsp;</td>
+						</tr>
+						<? $qry = "select idx, subject, content from t_bbs_eagle where idx=(select max(idx) from t_bbs_eagle)";
+							$rslt = $conn->query($qry);
+							$reSet = mysql_fetch_array($rslt);
+						?>
+						<tr> 
+						  <td>
+						    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+							  <tr>
+								<td width="20">&nbsp;</td>
+								<td style="padding-left:10px"><img src="/_images/icon02.gif" width="3" height="3" align="absmiddle"> <a href="learn/learn_news.html?inf=view&idx=<?=$reSet[idx]?>"><?= $reSet[subject]?></a><?#=$reSet[content]?></td>
+								<td width="20">&nbsp;</td>
+							  </tr>
+							</table></td>
+						</tr>
+						<tr> 
+						  <td height="8"></td>
+						</tr>
+						<tr>
+						  <td height="46" align="center" valign="top"><a href="learn/files/IT_Eagle_Setup.EXE"><img src="_images/learn_btn.gif" width="294" height="34"></a></td>
+						</tr>
+						</table>
+					</td>
+					<!--//런프로그램-->
+					
+					<!--자격증정보-->
+					<td>
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="310" height="136">
+						<param name="movie" value="_flash/main_info.swf">
+						<param name="quality" value="high">
+						<embed src="_flash/main_info.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="310" height="136"></embed> 
+						</object>
+					</td><!--//자격증정보-->
+				</tr>
+			</table>
+            <!--//내용-->
+<? include "inc/foot.html"; ?>

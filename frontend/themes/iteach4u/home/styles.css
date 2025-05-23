@@ -1,0 +1,63 @@
+@charset "UTF-8";
+.topleftlayout-background {
+    background-image: url('/themes/iteach4u/images/home/topleftlayout.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*position: relative;  ⭐ */
+    z-index: 0;        /* 배경을 아래로 */
+}
+.toprightlayout-background {
+    background-image: url('/themes/iteach4u/images/home/toprightlayout.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*    position: relative; /* ⭐ */
+    z-index: 0;        /* 배경을 아래로 */
+}
+.bottomleftlayout-background {
+    background-image: url('/themes/iteach4u/images/home/bottomleftlayout.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*    position: relative; /* ⭐ */
+    z-index: 0;        /* 배경을 아래로 */
+}
+.bottomrightlayout-background {
+    background-image: url('/themes/iteach4u/images/home/bottomrightlayout.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*    position: relative; /* ⭐ */
+    z-index: 0;        /* 배경을 아래로 */
+}
+.login-background {
+    background-image: url('/themes/iteach4u/images/background.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*    position: relative; /* ⭐ */
+    z-index: 0;        /* 배경을 아래로 */
+}
+.navbar-style {
+    background-color: var(--lumo-primary-color);
+    color: white;
+    padding: 1rem;
+}
+.leftmenu-title  {
+  font-size: 1.4 rem !important;
+}
+.leftmenu-title::part(content)  {
+  font-size: 1.8 rem !important;
+  font-weight: bold !important;
+}
+.footer-style {
+    background-color: var(--lumo-contrast-5pct);
+    padding: 1rem;
+    margin-top: auto; /* 주의: Flexbox 컨테이너에서 하단 고정 */
+}
+.image-button {
+  padding: 0;
+  border: none;
+  background: none;
+}
