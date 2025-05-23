@@ -62,13 +62,6 @@ public class SysDBO  implements Serializable,DBServiceImpl  {
 	
 	@Autowired
 	public SysDBO() {
-		sys_ds =DataSourceBuilder.create()
-			   .url("jdbc:postgresql://linxer.tplinkdns.com:54322/teach4u")
-			   .password("qazxsw70")
-			   .username("postgres")
-			    .driverClassName("org.postgresql.Driver")
-			    .type(HikariDataSource.class)  // Type을 명시
-			    .build();
 		sys_con = new JdbcTemplate(sys_ds);
 		con = sys_con;
 		datasource = sys_ds;
@@ -80,14 +73,6 @@ public class SysDBO  implements Serializable,DBServiceImpl  {
 	@Override
 	public void setConnection(String dbname) {
 		db_name = dbname;
-		datasource =DataSourceBuilder.create()
-				//.url("jdbc:postgresql://new.iteach4u.kr:5433/"+db_name)
-				//.password("qazxsw")
-			    .url("jdbc:postgresql://linxer.tplinkdns.com:54322/"+db_name)
-			    .password("qazxsw70")
-			    .username("postgres")
-			    .driverClassName("org.postgresql.Driver")
-			    .build();
 		con = new JdbcTemplate(datasource);
 	}
 
