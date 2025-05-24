@@ -193,7 +193,7 @@ public class MAT_CONTROL_VIEW extends FlexLayout{
 		
 	}
 	public void _initExam(int k ) {
-		mat_unit = new MAT_VIEW(true);
+		mat_unit = new MAT_VIEW();
 		if(k==0) {
 			mat_unit.setViewVisible(true);
 		}else {

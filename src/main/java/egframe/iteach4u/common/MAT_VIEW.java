@@ -48,6 +48,8 @@ import egframe.iteach4u.entity.usy_type_cd;
 import egframe.iteach4u.entity.usy_unit_cd;
 import egframe.iteach4u.views.exm.ExmMakeInsert;
 import egframe.iteach4u.views.exm.ExmMakeView;
+import elemental.json.Json;
+import elemental.json.JsonObject;
 import jakarta.annotation.PreDestroy;
 @Service
 public class MAT_VIEW extends FlexLayout{
@@ -94,21 +96,6 @@ public class MAT_VIEW extends FlexLayout{
 		_initMathLayout();
 		_initEvent();
 	}
-	public MAT_VIEW(boolean flag) {
-		_init();
-		_initViewLayout();
-		_initMathLayout();
-		_initEvent();
-		setViewVisible(flag);
-	}
-	public MAT_VIEW(exm_mat_unit_hd _hditem,boolean flag) {
-		hditem = _hditem;
-		_init();
-		_initViewLayout();
-		_initMathLayout();
-		_initEvent();
-		setViewVisible(flag);
-	}
 	public MAT_VIEW(exm_mat_unit_hd _hditem) {
 		hditem = _hditem;
 		_init();
@@ -116,9 +103,15 @@ public class MAT_VIEW extends FlexLayout{
 		_initMathLayout();
 		_initEvent();
 	}
+	public MAT_VIEW(boolean flag) {
+		_init();
+		_initViewLayout();
+		_initMathLayout();
+		_initEvent();
+		setViewVisible(flag);
+	}
+
 	public void _init() {
-		setWidth("100%");
-		setHeight("600px");
 		mainlayout.setSizeFull();
 		setFlexDirection(FlexDirection.COLUMN);
 		tview.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -128,49 +121,15 @@ public class MAT_VIEW extends FlexLayout{
 		mainlayout.add(viewlayout,mathlayout);
 		add(mainlayout);
 	}
-	public void setViewVisible(boolean flag) {
-		tview.setVisible(flag);
-		view_mce.setVisible(flag);
-		if(flag) {
-			viewlayout.setHeightFull();
-		}
-		_setPrintMat(flag);
-
-	}
-	private void _setPrintMat(boolean flag) {
-		if(hditem!=null) {
-			div_id = hditem.get_div_id();
-			if(mat_num < 6) {
-				if(flag) {//문제를 vieww 아래로 추가 
-					mathlayout.remove(exam_unit);
-					viewlayout.add(exam_unit);
-				}else {//view로 이동 
-					mathlayout.remove(exam_unit);
-					viewlayout.add(exam_unit);
-				}
-			}else {
-				
-			}
-		}
-		
-	}
 	public void _setViewLayoutControl(boolean b) {
 		viewlayout.setVisible(b);
 	}
 	public void _initViewLayout() {
-		//leftlayout.getStyle().set("border", "1px solid black");
 		viewlayout.setWidth("50%");
 		mathlayout.setWidth("50%");
-		viewlayout.setHeight("600px");
-		mathlayout.setHeight("600px");
-		//mainlayout.getStyle().set("border", "1px solid green");
-		//mathlayout.getStyle().set("border", "1px solid red");
 		mathlayout.setFlexDirection(FlexDirection.COLUMN);
 		viewlayout.setFlexDirection(FlexDirection.COLUMN);
-		//viewlayout.getStyle().set("border", "1px solid blue");
 		tview.setHeight("40px");
-		
-		
 		viewlayout.add(tview,view_mce);
 		mainlayout.add(viewlayout);
 	}
@@ -182,84 +141,167 @@ public class MAT_VIEW extends FlexLayout{
 	}
 	
 	public void _resizeMce() {
+
+		viewlayout.getStyle().set("border", "1px solid red");
+		mathlayout.getStyle().set("border", "1px solid blue");
+
 		
-  		view_mce.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-//  		view_mce.configure("autoresize_bottom_margin", 10);
-//  		view_mce.configure("autoresize_overflow_padding", 5);
+		view_mce.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		view_mce.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		
+		exam_unit.hd_mce.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.hd_mce.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_01.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_01.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_02.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_02.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_03.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_03.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_04.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_04.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_05.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_05.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		/*
   		view_mce.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		
-  		view_mce.getElement().executeJs(
-  			    "this.shadowRoot && this.shadowRoot.querySelector('.tox-editor-header') && " +
-  			    "this.shadowRoot.querySelector('.tox-editor-header').style.setProperty('display', 'none');"
-  			);	
-  		
-  		
-  		exam_unit.hd_mce.configure("autoresize_min_height", 60);  // 최초 높이 (3줄 정도)
-//  		exam_unit.hd_mce.configure("autoresize_bottom_margin", 10);
-//  		exam_unit.hd_mce.configure("autoresize_overflow_padding", 5);
   		exam_unit.hd_mce.configurePlugin(true,Plugin.AUTORESIZE);
-  		if(hditem.get_row_num()==0) {
-  			exam_unit.row_01.setVisible(false);
-  			exam_unit.row_02.setVisible(false);
-  			exam_unit.row_03.setVisible(false);
-  			exam_unit.row_04.setVisible(false);
-  			exam_unit.row_05.setVisible(false);
-  	}else if(hditem.get_row_num()==1) {
+  		exam_unit.row_01.configurePlugin(true,Plugin.AUTORESIZE);
+  		exam_unit.row_02.configurePlugin(true,Plugin.AUTORESIZE);
+  		exam_unit.row_03.configurePlugin(true,Plugin.AUTORESIZE);
+  		exam_unit.row_04.configurePlugin(true,Plugin.AUTORESIZE);
+  		exam_unit.row_05.configurePlugin(true,Plugin.AUTORESIZE);
+  		*/
+		
+	if(hditem.get_row_num()==0) {
+		exam_unit.row_01.setVisible(false);
+		exam_unit.row_02.setVisible(false);
+		exam_unit.row_03.setVisible(false);
+		exam_unit.row_04.setVisible(false);
+		exam_unit.row_05.setVisible(false);
+		exam_unit.r01.setVisible(false);
+		exam_unit.r02.setVisible(false);
+		exam_unit.r03.setVisible(false);
+		exam_unit.r04.setVisible(false);
+		exam_unit.r05.setVisible(false);
+  		System.out.println("0 : "+hditem.get_row_num());
+	}else if(hditem.get_row_num()==1) {
   		exam_unit.row_02.setVisible(false);
   		exam_unit.row_03.setVisible(false);
   		exam_unit.row_04.setVisible(false);
   		exam_unit.row_05.setVisible(false);
+  		exam_unit.r02.setVisible(false);
+  		exam_unit.r03.setVisible(false);
+  		exam_unit.r04.setVisible(false);
+  		exam_unit.r05.setVisible(false);
+  		System.out.println("1 : "+hditem.get_row_num());
   	}else if(hditem.get_row_num()==2) {
   		exam_unit.row_03.setVisible(false);
   		exam_unit.row_04.setVisible(false);
   		exam_unit.row_05.setVisible(false);
+  		exam_unit.r03.setVisible(false);
+  		exam_unit.r04.setVisible(false);
+  		exam_unit.r05.setVisible(false);
+  		System.out.println("2 : "+hditem.get_row_num());
   	}else if(hditem.get_row_num()==3) {
   		exam_unit.row_04.setVisible(false);
   		exam_unit.row_05.setVisible(false);
+  		exam_unit.r04.setVisible(false);
+  		exam_unit.r05.setVisible(false);
+  		System.out.println("3 : "+hditem.get_row_num());
   	}else if(hditem.get_row_num()==4) {
   		exam_unit.row_05.setVisible(false);
+  		exam_unit.r05.setVisible(false);
+  		System.out.println("4 : "+hditem.get_row_num());
+  	}else if(hditem.get_row_num()==5) {
+  		System.out.println("5 : "+hditem.get_row_num());
+  	}else {
+  		System.out.println("X : "+hditem.get_row_num());
   	}
-  		exam_unit.row_01.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-//  		exam_unit.row_01.configure("autoresize_bottom_margin", 10);
-//  		exam_unit.row_01.configure("autoresize_overflow_padding", 5);
-  		exam_unit.row_01.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_02.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-//  		exam_unit.row_02.configure("autoresize_bottom_margin", 10);
-//  		exam_unit.row_02.configure("autoresize_overflow_padding", 5);
-  		exam_unit.row_02.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_03.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-//  		exam_unit.row_03.configure("autoresize_bottom_margin", 10);
-//  		exam_unit.row_03.configure("autoresize_overflow_padding", 5);
-  		exam_unit.row_03.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_04.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-//  		exam_unit.row_04.configure("autoresize_bottom_margin", 10);
-//  		exam_unit.row_04.configure("autoresize_overflow_padding", 5);
-  		exam_unit.row_04.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_05.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-//  		exam_unit.row_05.configure("autoresize_bottom_margin", 10);
-//  		exam_unit.row_05.configure("autoresize_overflow_padding", 5);
-  		exam_unit.row_05.configurePlugin(true,Plugin.AUTORESIZE);
 	}
 	public void _initEvent() {
-		
-		wadd.addClickListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent)._addMatControl();
-            });            
-		});
-	   	view_mce.addValueChangeListener(e->{
-	   		viewitem.set_context(view_mce.getValue());
-	   	});
 	   	view_mce.addFocusListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent).setMce(view_mce);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+//                ((MAT_CONTROL_VIEW) parent).setMce(view_mce);
             });
 	   	});
+
+	   	
+	   	exam_unit.hd_mce.addFocusListener(e->{
+	   		exam_unit.hd_mce.configure("content_style", 
+	   			    "html { filter: invert(1) hue-rotate(180deg); }"
+	   			);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+//                ((MAT_CONTROL) parent).setMce(hd_mce);
+            });
+	   	});
+	   	exam_unit.row_01.addFocusListener(e->{
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+//                ((MAT_CONTROL) parent).setMce(row_01);
+            });
+	   	});
+	   	exam_unit.row_02.addFocusListener(e->{
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+//                ((MAT_CONTROL) parent).setMce(row_02);
+            });
+	   	});
+	   	exam_unit.row_03.addFocusListener(e->{
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+//                ((MAT_CONTROL) parent).setMce(row_03);
+            });
+	   	});
+	   	exam_unit.row_04.addFocusListener(e->{
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+//                ((MAT_CONTROL) parent).setMce(row_04);
+            });
+	   	});
+	   	exam_unit.row_05.addFocusListener(e->{
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+//                ((MAT_CONTROL) parent).setMce(row_05);
+            });
+	   	});
+	   	
+	   	
 	   	
 	}
 	private Optional<Component> getParentRecursively(Component component, Class<?> targetClass) {
@@ -316,6 +358,32 @@ public class MAT_VIEW extends FlexLayout{
 				exam_unit.row_05.setPresentationValue(rowlist.get(i).get_context());
 			}
 		}
+	}
+	public void setViewVisible(boolean flag) {
+		tview.setVisible(flag);
+		view_mce.setVisible(flag);
+		if(flag) {
+			viewlayout.setHeightFull();
+		}
+		_setPrintMat(flag);
+
+	}
+	private void _setPrintMat(boolean flag) {
+		if(hditem!=null) {
+			div_id = hditem.get_div_id();
+			if(mat_num < 6) {
+				if(flag) {//문제를 vieww 아래로 추가 
+					mathlayout.remove(exam_unit);
+					viewlayout.add(exam_unit);
+				}else {//view로 이동 
+					mathlayout.remove(exam_unit);
+					viewlayout.add(exam_unit);
+				}
+			}else {
+				
+			}
+		}
+		
 	}
 	
 	public void _setTitile(int i) {

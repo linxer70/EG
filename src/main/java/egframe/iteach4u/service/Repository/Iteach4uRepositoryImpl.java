@@ -949,12 +949,13 @@ public class Iteach4uRepositoryImpl implements Iteach4uRepository {
 			String sqlsyntax ="";
 			List<exm_mat_unit_hd> list;
 			sqlsyntax = "SELECT COALESCE(a.type_id,0) as type_id,COALESCE(a.view_id,0) as view_id,COALESCE(a.id,0) as id,"
-					+ "  COALESCE(a.class_id,0) as class_id, COALESCE(a.subject_id,0) as subject_id, COALESCE(a.unit_id,0) as unit_id , "
-					+ " COALESCE(a.div_id,0) as div_id, COALESCE(a.context,'') as context,"
+					+ "  COALESCE(a.class_id,0) as class_id, COALESCE(a.subject_id,0) as subject_id, COALESCE(a.unit_id,0) as unit_id ,  COALESCE(ee.unit_nm,'') as unit_nm , "
+					+ " COALESCE(a.div_id,0) as div_id, COALESCE(a.context,'') as context,COALESCE(e.div_nm,'') as div_nm,COALESCE(e.mat_cnt,0) as mat_cnt,"
 					+ " CASE WHEN ROW_NUMBER() OVER (PARTITION BY a.view_id ORDER BY a.view_id) = 1 and e.view_yn ='Y' THEN 'Y' ELSE 'N' END AS visible_yn"
 					+ " FROM "
 					+ " exm_mat_unit_hd as a left outer join exm_mat_unit_view as b on(a.view_id = b.id ) "
 					+ " left outer join usy_div_cd e  on (a.div_id = e.id)"
+					+ " left outer join usy_type_class_subject_unit ee  on (a.unit_id = ee.id)"
 					+ " WHERE COALESCE(a.view_id,0) = ? order by a.view_id,a.id  ";
 			list = jdbc.query(
 		        		sqlsyntax,

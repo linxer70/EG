@@ -200,6 +200,7 @@ public class MAT_CONTROL extends FlexLayout{
 			mat_unit.setViewVisible(false);
 		}
 		mat_unit._setTitile(k);
+		mat_unit._resizeMce();
 		mat_unit_list.add(mat_unit);
 		mat_unit._removeAdd();
 		add(mat_unit_list.get(k));
@@ -364,6 +365,11 @@ public class MAT_CONTROL extends FlexLayout{
 			for(int i = 0 ;i < k ;i++) {
 				exm_mat_unit_hd hd = hdlist.get(i); 
 				MAT_UNIT matunit = mat_unit_list.get(i);
+				boolean b = false;
+				if(flag.equals("Y")) {
+					b=true;
+				}
+				matunit.view_mce.setVisible(b);
 				EXAM_UNIT examunit = matunit.exam_unit;
 				div_combo_data= sqlca.getDivCd(view_yn);
 				examunit.div_combo_data = div_combo_data;

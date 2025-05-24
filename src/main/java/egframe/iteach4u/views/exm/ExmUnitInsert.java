@@ -315,7 +315,7 @@ public class ExmUnitInsert extends SysWindow  implements WindowImpl,AfterNavigat
   	   	hdlayout.add(mat_control);
   	   	view_combo.setValue("Y");
   	   	hdlayout.getElement().getStyle().set("overflow-y", "auto");
-  	   	hdlayout.getStyle().set("border", "5px solid red");	
+  	   	//hdlayout.getStyle().set("border", "5px solid red");	
 	   	subject_combo_data = sqlca.getSubjectList(class_id);
 	   	subject_combo.setItems(subject_combo_data);
 
@@ -335,7 +335,7 @@ public class ExmUnitInsert extends SysWindow  implements WindowImpl,AfterNavigat
  	   	mat_control = new MAT_CONTROL(sqlca,view);
  	   	hdlayout.add(mat_control);
   	   	hdlayout.getElement().getStyle().set("overflow-y", "auto");
- 	  	  hdlayout.getStyle().set("border", "5px solid red");	
+ 	  	//  hdlayout.getStyle().set("border", "5px solid red");	
   	   	view_combo.setValue(view.get_view_yn());
   	   	
 	   	subject_combo_data = sqlca.getSubjectList(class_id);

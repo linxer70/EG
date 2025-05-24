@@ -56,6 +56,7 @@ import egframe.iteach4u.common.MAT_VIEW;
 import egframe.iteach4u.common.UNIT_CODE;
 import egframe.iteach4u.entity.exm_mat_make_hd;
 import egframe.iteach4u.entity.exm_mat_make_list;
+import egframe.iteach4u.entity.exm_mat_pass_list;
 import egframe.iteach4u.entity.exm_mat_unit_hd;
 import egframe.iteach4u.entity.exm_mat_unit_row;
 import egframe.iteach4u.entity.exm_mat_unit_view;
@@ -117,7 +118,7 @@ public class ExmPassInsert extends SysWindow  implements WindowImpl,AfterNavigat
 	private String passed_nm ;
 
     
-	private exm_mat_unit_view viewitem ;
+	private exm_mat_pass_list viewitem ;
 	private exm_mat_unit_hd hditem;
 	private exm_mat_unit_row rowitem;
 	
@@ -157,6 +158,7 @@ public class ExmPassInsert extends SysWindow  implements WindowImpl,AfterNavigat
 	   	buttonlayout.winsert.setVisible(true);
 	   	buttonlayout.winsert.setText("생성");
 	   	buttonlayout.wretrieve.setText("목록보기");
+	   	buttonlayout.wsave.setText("결과보기");
 	   	remove(searchlayout,hdlayout,rowlayout,seqlayout);
 	   	add(searchlayout,hdlayout,rowlayout);
 	   	rowlayout.setWidthFull();
@@ -334,7 +336,7 @@ public class ExmPassInsert extends SysWindow  implements WindowImpl,AfterNavigat
             	   	String str = String.valueOf(id);
             	   	_makeMatControl();
             	   	buttonlayout.winsert.setVisible(false);
-            	   	buttonlayout.wsave.setVisible(false);
+            	   //	buttonlayout.wsave.setVisible(false);
                 }else {
                 	return;
                 }

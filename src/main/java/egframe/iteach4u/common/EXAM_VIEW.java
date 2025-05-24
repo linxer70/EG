@@ -24,15 +24,18 @@ import org.springframework.transaction.support.TransactionTemplate;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.google.gwt.user.client.ui.RadioButton;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.AbstractField.ComponentValueChangeEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.FlexLayout.FlexDirection;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 
 import egframe.common.SysToolBarControl;
 import egframe.common.tinymce.Menubar;
@@ -58,6 +61,11 @@ public class EXAM_VIEW extends FlexLayout{
 	private static final long serialVersionUID = 1L;
 	//public SysToolBarControl toolbar = new SysToolBarControl();
 	public TinyMce hd_mce = new TinyMce();
+	public FlexLayout row01 = new FlexLayout();
+	public FlexLayout row02 = new FlexLayout();
+	public FlexLayout row03 = new FlexLayout();
+	public FlexLayout row04 = new FlexLayout();
+	public FlexLayout row05 = new FlexLayout();
 	public TinyMce row_01 = new TinyMce();
 	public TinyMce row_02 = new TinyMce();
 	public TinyMce row_03 = new TinyMce();
@@ -71,6 +79,18 @@ public class EXAM_VIEW extends FlexLayout{
 	public HorizontalLayout title = new HorizontalLayout();
 	private Button tunit = new Button("단원");
 	private Button tdiv = new Button("유형");
+/*	
+	public RadioButtonGroup<Long> r01 = new RadioButtonGroup<>();
+	public RadioButtonGroup<Long> r02 = new RadioButtonGroup<>();
+	public RadioButtonGroup<Long> r03 = new RadioButtonGroup<>();
+	public RadioButtonGroup<Long> r04 = new RadioButtonGroup<>();
+	public RadioButtonGroup<Long> r05 = new RadioButtonGroup<>();
+*/
+	public Checkbox r01 = new Checkbox();
+	public Checkbox r02 = new Checkbox();
+	public Checkbox r03 = new Checkbox();
+	public Checkbox r04 = new Checkbox();
+	public Checkbox r05 = new Checkbox();
 
 	public List<usy_subject_cd> subject_combo_data;
 	public exm_mat_unit_view viewitem;
@@ -99,7 +119,7 @@ public class EXAM_VIEW extends FlexLayout{
 	}
 	public void _init() {
 		setFlexDirection(FlexDirection.COLUMN);
-		setHeight("600px");
+		//setHeight("600px");
 	}
 	public void _initTitle() {
 		
@@ -117,40 +137,124 @@ public class EXAM_VIEW extends FlexLayout{
 		unit_combo.setItemLabelGenerator(usy_unit_cd::get_unit_nm);
 		div_combo.setItemLabelGenerator(usy_div_cd::get_div_nm);
 
-		title.setHeight("40px");
+		//title.setHeight("40px");
 		title.add(mat,tdiv,div_combo,tunit,unit_combo,delete);
 		
 		hd.setFlexDirection(FlexDirection.COLUMN);
-		hd.setHeight("300px");
+		//hd.setHeight("300px");
 		hd.add(title,hd_mce);
 		add(hd);
 	}
 	public void _initRowLayout() {
 		row.setFlexDirection(FlexDirection.COLUMN);
-		row_01.setHeight("20%");
-		row_02.setHeight("20%");
-		row_03.setHeight("20%");
-		row_04.setHeight("20%");
-		row_05.setHeight("20%");
-		row.add(row_01,row_02,row_03,row_04,row_05);
-		row.setHeight("300px");
+		row01.setFlexDirection(FlexDirection.ROW);
+		row02.setFlexDirection(FlexDirection.ROW);
+		row03.setFlexDirection(FlexDirection.ROW);
+		row04.setFlexDirection(FlexDirection.ROW);
+		row05.setFlexDirection(FlexDirection.ROW);
+		
+		//r01.setItems(1L);
+		//r01.getStyle().set("color", "black");
+		r01.addValueChangeListener(event -> {
+		    boolean oldValue = event.getOldValue();
+		    boolean newValue = event.getValue();
+
+		    // 사용자가 동일한 항목을 다시 클릭했을 경우 → 해제
+		    if (newValue==true) {
+		       r01.setValue(true);
+		    	r02.setValue(false);
+		    	r03.setValue(false);
+		    	r04.setValue(false);
+		    	r05.setValue(false);
+		    }else {
+		    }
+		});
+		//r02.setItems(2L);
+		//r02.getStyle().set("color", "black");
+		r02.addValueChangeListener(event -> {
+			boolean oldValue = event.getOldValue();
+			boolean newValue = event.getValue();
+
+		    // 사용자가 동일한 항목을 다시 클릭했을 경우 → 해제
+		    if (newValue==true) {
+			       r01.setValue(false);
+			    	r02.setValue(true);
+			    	r03.setValue(false);
+			    	r04.setValue(false);
+			    	r05.setValue(false);
+		    }
+		});
+		//r03.setItems(3L);
+		//r03.getStyle().set("color", "black");
+		r03.addValueChangeListener(event -> {
+			boolean oldValue = event.getOldValue();
+			boolean newValue = event.getValue();
+
+		    // 사용자가 동일한 항목을 다시 클릭했을 경우 → 해제
+		    if (newValue==true) {
+			       r01.setValue(false);
+			    	r02.setValue(false);
+			    	r03.setValue(true);
+			    	r04.setValue(false);
+			    	r05.setValue(false);
+		    }
+		});
+		
+		//r04.setItems(4L);
+		//r04.getStyle().set("color", "black");
+		r04.addValueChangeListener(event -> {
+			boolean oldValue = event.getOldValue();
+			boolean newValue = event.getValue();
+
+		    // 사용자가 동일한 항목을 다시 클릭했을 경우 → 해제
+		    if (newValue==true) {
+			       r01.setValue(false);
+			    	r02.setValue(false);
+			    	r03.setValue(false);
+			    	r04.setValue(true);
+			    	r05.setValue(false);
+		    }
+		});
+		//r05.setItems(5L);
+		//r05.getStyle().set("color", "black");
+		r05.addValueChangeListener(event -> {
+			boolean oldValue = event.getOldValue();
+			boolean newValue = event.getValue();
+
+		    // 사용자가 동일한 항목을 다시 클릭했을 경우 → 해제
+		    if (newValue==true) {
+			       r01.setValue(false);
+			    	r02.setValue(false);
+			    	r03.setValue(false);
+			    	r04.setValue(false);
+			    	r05.setValue(true);
+		    }
+		});
+		
+		row01.add(r01,row_01);
+		row02.add(r02,row_02);
+		row03.add(r03,row_03);
+		row04.add(r04,row_04);
+		row05.add(r05,row_05);
+		row.add(row01,row02,row03,row04,row05);
+		//row.setHeight("300px");
 		add(row);
 	}
 	public void _setTitle(int title) {
 		mat.setText(title+" 문제");
 	}
 	public void reSizeExm() {
-		hd_mce.setHeight("20%");
-		row_01.setHeight("20%");
-		row_02.setHeight("20%");
-		row_03.setHeight("20%");
-		row_04.setHeight("20%");
-		row_05.setHeight("20%");
+		//hd_mce.setHeight("20%");
+		//row_01.setHeight("20%");
+		//row_02.setHeight("20%");
+		//row_03.setHeight("20%");
+		//row_04.setHeight("20%");
+		//row_05.setHeight("20%");
 	}
 	public void _initEvent() {
 		delete.addClickListener(event -> {
-            getParentRecursively(this, MAT_UNIT.class).ifPresent(parent -> {
-                ((MAT_UNIT) parent).wDelete();
+            getParentRecursively(this, MAT_VIEW.class).ifPresent(parent -> {
+                ((MAT_VIEW) parent).wDelete();
             });            
         });
 		div_combo.addValueChangeListener(e->{
@@ -199,33 +303,33 @@ public class EXAM_VIEW extends FlexLayout{
        });
 		
 	   	hd_mce.addFocusListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent).setMce(hd_mce);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+                ((MAT_CONTROL_VIEW) parent).setMce(hd_mce);
             });
 	   	});
 	   	row_01.addFocusListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent).setMce(row_01);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+                ((MAT_CONTROL_VIEW) parent).setMce(row_01);
             });
 	   	});
 	   	row_02.addFocusListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent).setMce(row_02);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+                ((MAT_CONTROL_VIEW) parent).setMce(row_02);
             });
 	   	});
 	   	row_03.addFocusListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent).setMce(row_03);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+                ((MAT_CONTROL_VIEW) parent).setMce(row_03);
             });
 	   	});
 	   	row_04.addFocusListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent).setMce(row_04);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+                ((MAT_CONTROL_VIEW) parent).setMce(row_04);
             });
 	   	});
 	   	row_05.addFocusListener(e->{
-            getParentRecursively(this, MAT_CONTROL.class).ifPresent(parent -> {
-                ((MAT_CONTROL) parent).setMce(row_05);
+            getParentRecursively(this, MAT_CONTROL_VIEW.class).ifPresent(parent -> {
+                ((MAT_CONTROL_VIEW) parent).setMce(row_05);
             });
 	   	});
 	   	

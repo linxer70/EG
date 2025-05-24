@@ -118,7 +118,7 @@ public class MAT_UNIT extends FlexLayout{
 	}
 	public void _init() {
 		setWidth("100%");
-		setHeight("600px");
+		//setHeight("600px");
 		mainlayout.setSizeFull();
 		setFlexDirection(FlexDirection.COLUMN);
 		tview.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -161,8 +161,8 @@ public class MAT_UNIT extends FlexLayout{
 		//leftlayout.getStyle().set("border", "1px solid black");
 		viewlayout.setWidth("50%");
 		mathlayout.setWidth("50%");
-		viewlayout.setHeight("600px");
-		mathlayout.setHeight("600px");
+		//viewlayout.setHeight("600px");
+		//mathlayout.setHeight("600px");
 		//mainlayout.getStyle().set("border", "1px solid green");
 		//mathlayout.getStyle().set("border", "1px solid red");
 		mathlayout.setFlexDirection(FlexDirection.COLUMN);
@@ -182,68 +182,100 @@ public class MAT_UNIT extends FlexLayout{
 	}
 	
 	public void _resizeMce() {
+		viewlayout.getStyle().set("border", "1px solid red");
+		mathlayout.getStyle().set("border", "1px solid blue");
+
 		
-  		view_mce.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-  		view_mce.configure("autoresize_bottom_margin", 10);
-  		view_mce.configure("autoresize_overflow_padding", 5);
+		view_mce.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		view_mce.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		
+		exam_unit.hd_mce.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.hd_mce.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_01.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_01.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_02.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_02.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_03.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_03.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_04.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_04.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		exam_unit.row_05.configurePlugin(false,Plugin.AUTORESIZE)
+	    .configure("min_height", 30)   // 한 줄 높이로 시작
+	    .configure("max_height", 300)  // 자동 크기 제한 (원하는 값으로)
+	    .configure("autoresize_bottom_margin", 0);
+		exam_unit.row_05.configure("content_style", 
+			    "body { font-size: 14px; line-height: 1.4; }"
+			);
+		
+		/*
   		view_mce.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.hd_mce.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-  		exam_unit.hd_mce.configure("autoresize_bottom_margin", 10);
-  		exam_unit.hd_mce.configure("autoresize_overflow_padding", 5);
   		exam_unit.hd_mce.configurePlugin(true,Plugin.AUTORESIZE);
-if(hditem.get_row_num()==0) {
-		exam_unit.row_01.setVisible(false);
-		exam_unit.row_02.setVisible(false);
-		exam_unit.row_03.setVisible(false);
-		exam_unit.row_04.setVisible(false);
-		exam_unit.row_05.setVisible(false);
-}else if(hditem.get_row_num()==1) {
-	exam_unit.row_02.setVisible(false);
-	exam_unit.row_03.setVisible(false);
-	exam_unit.row_04.setVisible(false);
-	exam_unit.row_05.setVisible(false);
-}else if(hditem.get_row_num()==2) {
-	exam_unit.row_03.setVisible(false);
-	exam_unit.row_04.setVisible(false);
-	exam_unit.row_05.setVisible(false);
-}else if(hditem.get_row_num()==3) {
-	exam_unit.row_04.setVisible(false);
-	exam_unit.row_05.setVisible(false);
-}else if(hditem.get_row_num()==4) {
-	exam_unit.row_05.setVisible(false);
-}
-  		exam_unit.row_01.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-  		exam_unit.row_01.configure("autoresize_bottom_margin", 10);
-  		exam_unit.row_01.configure("autoresize_overflow_padding", 5);
   		exam_unit.row_01.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_02.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-  		exam_unit.row_02.configure("autoresize_bottom_margin", 10);
-  		exam_unit.row_02.configure("autoresize_overflow_padding", 5);
   		exam_unit.row_02.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_03.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-  		exam_unit.row_03.configure("autoresize_bottom_margin", 10);
-  		exam_unit.row_03.configure("autoresize_overflow_padding", 5);
   		exam_unit.row_03.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_04.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-  		exam_unit.row_04.configure("autoresize_bottom_margin", 10);
-  		exam_unit.row_04.configure("autoresize_overflow_padding", 5);
   		exam_unit.row_04.configurePlugin(true,Plugin.AUTORESIZE);
-  		
-  		exam_unit.row_05.configure("autoresize_min_height", 90);  // 최초 높이 (3줄 정도)
-  		exam_unit.row_05.configure("autoresize_bottom_margin", 10);
-  		exam_unit.row_05.configure("autoresize_overflow_padding", 5);
   		exam_unit.row_05.configurePlugin(true,Plugin.AUTORESIZE);
-/*  		
-		Stream.of(view_mce, mat.hd_mce, mat.row_01, mat.row_02, mat.row_03, mat.row_04, mat.row_05).forEach(editor -> {
-		    editor.getStyle()
-		        .set("height", "auto")
-		        .set("flex-shrink", "0");
-		});  		
-*/		
+  		*/
+		if(hditem!= null) {
+			if(hditem.get_row_num()==0) {
+		  		exam_unit.row_01.setVisible(false);
+		  		exam_unit.row_02.setVisible(false);
+		  		exam_unit.row_03.setVisible(false);
+		  		exam_unit.row_04.setVisible(false);
+		  		exam_unit.row_05.setVisible(false);
+		  	}else if(hditem.get_row_num()==1) {
+		  		exam_unit.row_02.setVisible(false);
+		  		exam_unit.row_03.setVisible(false);
+		  		exam_unit.row_04.setVisible(false);
+		  		exam_unit.row_05.setVisible(false);
+		  	}else if(hditem.get_row_num()==2) {
+		  		exam_unit.row_03.setVisible(false);
+		  		exam_unit.row_04.setVisible(false);
+		  		exam_unit.row_05.setVisible(false);
+		  	}else if(hditem.get_row_num()==3) {
+		  		exam_unit.row_04.setVisible(false);
+		  		exam_unit.row_05.setVisible(false);
+		  	}else if(hditem.get_row_num()==4) {
+		  		exam_unit.row_05.setVisible(false);
+		  	}else if(hditem.get_row_num()==5) {
+		  	}
+		}
 	}
 	public void _initEvent() {
 		

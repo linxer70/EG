@@ -99,7 +99,7 @@ public class EXAM_UNIT extends FlexLayout{
 	}
 	public void _init() {
 		setFlexDirection(FlexDirection.COLUMN);
-		setHeight("600px");
+		//setHeight("600px");
 	}
 	public void _initTitle() {
 		
@@ -121,31 +121,31 @@ public class EXAM_UNIT extends FlexLayout{
 		title.add(mat,tdiv,div_combo,tunit,unit_combo,delete);
 		
 		hd.setFlexDirection(FlexDirection.COLUMN);
-		hd.setHeight("300px");
+		//hd.setHeight("300px");
 		hd.add(title,hd_mce);
 		add(hd);
 	}
 	public void _initRowLayout() {
 		row.setFlexDirection(FlexDirection.COLUMN);
-		row_01.setHeight("20%");
-		row_02.setHeight("20%");
-		row_03.setHeight("20%");
-		row_04.setHeight("20%");
-		row_05.setHeight("20%");
+		//row_01.setHeight("20%");
+		//row_02.setHeight("20%");
+		//row_03.setHeight("20%");
+		//row_04.setHeight("20%");
+		//row_05.setHeight("20%");
 		row.add(row_01,row_02,row_03,row_04,row_05);
-		row.setHeight("300px");
+		//row.setHeight("300px");
 		add(row);
 	}
 	public void _setTitle(int title) {
 		mat.setText(title+" 문제");
 	}
 	public void reSizeExm() {
-		hd_mce.setHeight("20%");
-		row_01.setHeight("20%");
-		row_02.setHeight("20%");
-		row_03.setHeight("20%");
-		row_04.setHeight("20%");
-		row_05.setHeight("20%");
+		//hd_mce.setHeight("20%");
+		//row_01.setHeight("20%");
+		//row_02.setHeight("20%");
+		//row_03.setHeight("20%");
+		//row_04.setHeight("20%");
+		//row_05.setHeight("20%");
 	}
 	public void _initEvent() {
 		delete.addClickListener(event -> {
